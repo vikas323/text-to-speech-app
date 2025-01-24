@@ -1,22 +1,40 @@
-let speech = new SpeechSynthesisUtterance();
+const textInput = document.getElementById("text");
+    const languageSelect = document.getElementById("language");
+    const speakButton = document.getElementById("speak");
 
-let voices = []; 
+    // Populate the language dropdown with available voices
+    function populateLanguages() {
+      const voices = window.speechSynthesis.getVoices();
+      const uniqueLanguages = new Set(voices.map(voice => voice.lang));
+      
+      uniqueLanguages.forEach(lang => {
+        const option = document.createElement("option");
+        option.value = lang;
+        option.textContent = lang;
+        languageSelect.appendChild(option);
+      });
+    }
 
-let voicesSelect = document.querySelector("select");
+    // Trigger voice population after the voices are loaded
+    window.speechSynthesis.onvoiceschanged = populateLanguages;
 
-window.speechSynthesis.onvoiceschanged = () => {
-    voice = window.speechSynthesis.getVoices();
-    speech.voices = [0];
+    // Speak the text in the selected language
+    speakButton.addEventListener("click", () => {
+      const text = textInput.value;
+      const language = languageSelect.value;
 
-    voices. forEach((voice, i) => (voicesSelect.options[i] = new options(voice.name, i)));
+      if (text.trim() === "") {
+        alert("Please enter some text to speak.");
+        return;
+      }
 
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = language;
+      
+      // Find a matching voice for the language
+      const voices = window.speechSynthesis.getVoices();
+      const voice = voices.find(voice => voice.lang === language);
+      if (voice) utterance.voice = voice;
 
-}
-voicesSelect.addEventListener("change",() => {
-    speech.voices[voicesSelect.value];
-
-})
-document.querySelector("button").addEventListener("click", () =>{
-speech.text = document.querySelector("textarea").value;
-window.speechSynthesis.speak(speech);
-})
+      window.speechSynthesis.speak(utterance);
+    });

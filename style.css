@@ -1,98 +1,68 @@
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-</style>
-
-{
-    margin: 0;
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-}
-.hero{
-
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #444;
+  }
+  
+  textarea {
     width: 100%;
-    height: 100vh;
-    background: #7d8d97;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.hero h1{
-    
-    font-size: 45px;
-    font-weight: 500;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    color: dark black;
-}
-.hero span{
-    color: yellow;
-    border-bottom: 5px solid yellow;
-}
-
-textarea{
-    width: 70%;
-    height: 50px;
-    background: wheat;
-    color: #0f1a20;
-    font-size: 15px;
-    border: 0;
-    outline: 0;
-    padding: 20px;
-    border-radius: 10px;
+    max-width: 600px;
+    margin: 10px auto;
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #d48787;
+    border-radius: 5px;
     resize: none;
-    margin-bottom: 30px;
-}
-
-textarea ::placeholder{
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin: 10px auto;
+    max-width: 600px;
+    font-size: 14px;
+    color: #0c0c0c;
+  }
+  
+  select {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
     font-size: 16px;
-    color: black;
-}
-.row{
-    width: 600px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-button{
-    background: rgb(214, 118, 79);
-    color: black;    
-    font-size: 16px;
-    padding: 10px 30px;
-    border-radius: 40px;
-    border: 0;
-    outline: 0;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-      
-}
-select{
-    flex: 1;
-    color: black;
-    background:  rgb(214, 118, 79);
-    height: 50px;
-    border: 0;
-    outline: 0;
-    border-radius: 40px;
-    
-
-    @media screen and (max-width:700px) {
-        .hero h1{
-            font-size: 25px;
-        }
-        .row{
-            width: 300px;
-            flex-direction: column;
-            height: 100px;
-
-        }
-        select{
-            width: 70%;
-        }
-        
-    }
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:active {
+    background-color: #003f7f;
+  }
+  
